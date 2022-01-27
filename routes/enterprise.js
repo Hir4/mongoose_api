@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
 
 // Get client with id
 router.get('/:id', getClient, (req, res) => {
-  res.send(res.client.name);
+  res.send(req.client);
 });
 
 // Create new client
@@ -35,26 +35,26 @@ router.post('/', async (req, res) => {
 // Update a client
 router.patch('/:id', getClient, async (req, res) => {
   if (req.body.name != null) {
-    res.client.name = req.body.name;
+    req.client.name = req.body.name;
   }
   if (req.body.age != null) {
-    res.client.age = req.body.age;
+    req.client.age = req.body.age;
   }
   if (req.body.salary != null) {
-    res.client.salary = req.body.salary;
+    req.client.salary = req.body.salary;
   }
   try {
-    const updateClient = await res.client.save();
+    const updateClient = await req.client.save();
     res.json(updateClient);
   } catch (err) {
-    res.status(400).json({ message: err.message });
+    res.status(400).json({ message: err.message })
   }
 });
 
 // Delete a client
 router.delete('/:id', getClient, async (req, res) => {
   try {
-    await res.client.remove();
+    await req.client.remove();
     res.json({ message: "Client deleted" });
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -73,7 +73,7 @@ async function getClient(req, res, next) {
     return res.status(500).json({ message: err.message });
   }
 
-  res.client = client;
+  req.client = client;
   next();
 }
 
