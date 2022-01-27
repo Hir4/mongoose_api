@@ -28,11 +28,7 @@ Before start and assuming that you already clone the repository, if not you can 
 ```bash
 git clone https://github.com/Hir4/mongoose_api.git && cd mongoose_api
 ```
-Keep going, you should use dotenv and nodemon if you want, so you can be able to put in the .env file MongoDB's URI and nodemon so the application restart when something change (if you don't want it, just skip to the next step):
-```bash
-npm i --save-dev dotenv nodemon
-```
-After that, it is time to install the main dependencies by running:
+After that, it is time to install the dependencies by running:
 ```bash
 npm install
 ```
