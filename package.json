@@ -1,0 +1,19 @@
+{
+  "name": "api_nem",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.2",
+    "mongoose": "^6.1.8"
+  },
+  "devDependencies": {
+    "dotenv": "^14.3.2",
+    "nodemon": "^2.0.15"
+  }
+}
