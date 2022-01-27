@@ -63,9 +63,17 @@ Status can be: 200(everything ok) or 500(something went wrong in the server)
 
 ### `GET '/:id'`
 Await find by id the client and response:
-
-`Name of the client`
-
+```json
+[
+  {
+    "_id": <ObjectID>,
+    "name": <String>,
+    "age": <Number>,
+    "salary": <Number>,
+    "__v": <Number>
+  }
+]
+```
 Status can be: 200(everything ok), 404(id not found) or 500(something went wrong in the server)
 
 ### `POST '/'`
